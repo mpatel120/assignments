@@ -116,7 +116,6 @@ def get_users(twitter, screen_names):
     resource = 'users/lookup'
     params = {'screen_name': screen_names}
     response = robust_request(twitter, resource, params)
-    user_detail = [u for u in response]
     return response
 
 def get_friends(twitter, screen_name):
@@ -272,7 +271,7 @@ def create_graph(users, friend_counts):
       A networkx Graph
     """
     ###TODO
-    graph = nx.Graph(edge_color='r',weight=2)
+    graph = nx.Graph(edge_color='red',weight=2)
     for u in users:
         for friend in u['friends']:
             if(friend_counts[friend] > 1):
@@ -299,10 +298,10 @@ def draw_network(graph, users, filename):
 
     plt.figure(figsize=(20,10))
     pos=nx.spring_layout(graph)
-    nx.draw(graph, pos, with_labels=False, alpha = 0.6)
-    nx.draw_networkx_labels(graph, pos, labels=labels, font_color='b')
+    nx.draw(graph, pos, with_labels=False, alpha = 0.6, node_color = 'green', edge_color='#505050')
+    nx.draw_networkx_labels(graph, pos, labels=labels, font_size = 15)
     plt.savefig(filename)
-
+    
 def main():
     """ Main method. You should not modify this. """
     twitter = get_twitter()
