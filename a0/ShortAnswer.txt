@@ -8,12 +8,14 @@ Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
 Trump.
 
 How is this approach misleading? How might you fix it?
+It is better to do comparison between relative values rather than between absolute values. Here given numbers are absolute (i.e., 238 and 1). Therefore, if we convert the absolute value into relative with total number of friends of all user we will have the value in a fraction or in percentage. That is,
 
-
-
-
-
-
+similarity between Jill Stein and Gary Johnson = 238/5153
+                                               = 4.62%
+                                               
+similarity between Jill Stein and Gary Johnson = 1/829
+                                               = 0.12%
+From the above values we can now conclude that the similarity between Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald Trump.
 
 
 
@@ -23,15 +25,9 @@ do you think this user is followed by both Hilary Clinton and Donald Trump,
 who are rivals? Do some web searches to see if you can find out more
 information.
 
+As Hillary Clinton and Donald Trump were nominees for President of the United States in the 2016 election, both might have followed The White House so that they can have the latest feeds from the President and his Administration. 
 
-
-
-
-
-
-
-
-
+The Vice President of the United States is the second-highest officer in the executive branch of the U.S. federal government, after the President of the United States, and ranks first in the presidential line of succession. Donald Trump and Hillary Clinton were candidates for presidential elections, therfore, they were having common friend (that is Vice President) so that they should have update from the VP also.
 
 
 
@@ -39,11 +35,9 @@ information.
 Johnson follows over 3K accounts, while Donald Trump follows less than
 50). Why do you think this is? How might that affect our analysis?
 
+Looking into each candidate's follows list, Donald Trump may want to have a small circle of friends so that he gets more important feeds from the friends and his company that are relevant to either his business or government. Hence, in my thought, he is following more people who are near to him that is family members, his company accounts and the members of government. Hillary Clinton is following more organizations, individuals and governing officers so that she can have the insights from each era. Dr Jill Stein is an American physician, activist, and perennial candidate. Hence, she is having more friends related to her occupations and different organizations. Gary Johnson is a businessman, author and politician due to which he might have more friends and organizations who gave the information not only related to politics but also about other things such as news. 
 
-
-
-
-
+In my opinion, each candidate came from different background where they made friends based on their interest. Hence, based on common_friends function we can conclude the similarity between them. 
 
 
 
@@ -55,3 +49,19 @@ https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
 we have to make? Given how Twitter does rate limiting
 (https://dev.twitter.com/rest/public/rate-limiting), approximately how many
 minutes will it take to collect this data?
+
+From the function "count_friends()", we will get the unique IDs of all 4 users' friends. 
+Hence, The total Unique friend ids = 5715
+Number of users = 4
+Therefore, total number of API call = Number of Users + Total Unique friends of users
+                                    = 4 + 5715
+                                    = 5719
+
+Now, as per rate limit, we can make 15 API calls in each 15 minutes. 
+Therefore, total number of 15minute time slots are = 5719/15
+                                                    = 381.27
+                                                    = 382 windows (in whole numbers)
+Hence, the total time required for API calls (at least) = 381*15 + 1 
+                                                        = 5716 minutes
+In sum, the total time required to get all IDs of the users and their friends will be at least 5716 minutes.
+
